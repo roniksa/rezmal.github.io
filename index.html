@@ -1,85 +1,243 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reza Malehmir, PhD - Geospatial Innovator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            color: #333;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            color: #007acc;
-        }
-        h2 {
-            color: #555;
-            margin-bottom: 20px;
-        }
-        p {
-            margin-bottom: 20px;
-        }
-        ul {
-            list-style-type: square;
-            padding-left: 20px;
-        }
-        a {
-            color: #007acc;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            color: #777;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rod Malehmir, PhD</title>
+  <meta name="description" content="Rod Malehmir, PhD — Executive Vice President and Chief Technology Officer at Michael Baker International. Enterprise AI, digital twins and geospatial platforms." />
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #f9f9f7;
+      --surface: #ffffff;
+      --ink: #0b0b0b;
+      --ink-2: #52514e;
+      --muted: #77756f;
+      --line: #e1e0d9;
+      --accent: #1c5cab;
+      --accent-soft: #e6effa;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        color-scheme: dark;
+        --page: #0d0d0d;
+        --surface: #1a1a19;
+        --ink: #f0efec;
+        --ink-2: #c3c2b7;
+        --muted: #98968f;
+        --line: #2c2c2a;
+        --accent: #6da7ec;
+        --accent-soft: #16263a;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    a { color: var(--accent); text-underline-offset: 2px; }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 56px 20px 40px; }
+    header h1 { font-size: clamp(32px, 6vw, 44px); line-height: 1.1; margin: 0 0 8px; letter-spacing: -0.01em; }
+    header .role { font-size: 19px; color: var(--ink-2); margin: 0 0 18px; }
+    .links { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .links a {
+      display: inline-block; padding: 7px 14px; border-radius: 999px;
+      border: 1px solid var(--line); background: var(--surface);
+      text-decoration: none; font-size: 14px; color: var(--ink);
+    }
+    .links a:hover { border-color: var(--accent); color: var(--accent); }
+    section { margin-top: 48px; }
+    h2 {
+      font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--muted); margin: 0 0 16px; font-weight: 600;
+    }
+    p { margin: 0 0 14px; }
+    .lead { font-size: 18px; color: var(--ink-2); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+    .grid.two { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .card {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: 12px; padding: 18px;
+    }
+    .card h3 { font-size: 16px; margin: 0 0 6px; }
+    .card p { font-size: 15px; color: var(--ink-2); margin: 0; }
+    .card .tag {
+      display: inline-block; font-size: 12px; color: var(--accent);
+      background: var(--accent-soft); border-radius: 999px; padding: 1px 9px; margin-bottom: 8px;
+    }
+    .card .more { display: inline-block; margin-top: 10px; font-size: 14px; }
+    ul.plain { list-style: none; padding: 0; margin: 0; }
+    ul.plain li { padding: 12px 0; border-top: 1px solid var(--line); }
+    ul.plain li:first-child { border-top: 0; padding-top: 0; }
+    .meta { color: var(--muted); font-size: 14px; }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; margin-top: 24px; }
+    .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+    .stat .n { font-size: 24px; font-weight: 700; line-height: 1.2; }
+    .stat .l { font-size: 13px; color: var(--ink-2); }
+    .job { padding: 18px 0; border-top: 1px solid var(--line); }
+    .job:first-of-type { border-top: 0; padding-top: 0; }
+    .job .top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 16px; align-items: baseline; }
+    .job h3 { font-size: 17px; margin: 0; }
+    .job .org { color: var(--ink-2); font-weight: 500; }
+    .job .when { color: var(--muted); font-size: 14px; white-space: nowrap; }
+    .job ul { margin: 8px 0 0; padding-left: 18px; color: var(--ink-2); font-size: 15px; }
+    .job li { margin: 4px 0; }
+    .two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
+    footer { margin-top: 56px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); padding-top: 18px; }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Rod Malehmir, PhD</h1>
-        <h2>Innovator in Geospatial Technology</h2>
-        <p>Welcome to my GitHub page! I’m Rod Malehmir, a Senior Vice President and product manager with a deep passion for using technology to address complex challenges. My work focuses on AI, satellite data, and geospatial software, leading innovative projects that push the boundaries of what's possible.</p>
-        
-        <h2>What I Do</h2>
+  <main class="wrap">
+    <header>
+      <h1>Rod Malehmir, PhD</h1>
+      <p class="role">Executive Vice President &amp; Chief Technology Officer, Michael Baker International<br />Enterprise AI · Digital twins · Geospatial platforms · Vancouver, BC</p>
+      <ul class="links">
+        <li><a href="https://www.linkedin.com/in/rodmalehmir" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/rezmal" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://rezmal.github.io/ARTC/">ARTc web app</a></li>
+      </ul>
+    </header>
+
+    <section aria-labelledby="about">
+      <h2 id="about">About</h2>
+      <p class="lead">I build technology platforms and AI-driven businesses inside large engineering and infrastructure firms.</p>
+      <p>As Chief Technology Officer of Michael Baker International, I lead the firm's technology vision: enterprise AI, digital twins, product, data, cloud and information security. Before that I founded and grew the AI and digital-solutions practice at Tetra Tech, taking it from zero to roughly $50M in revenue in about three years. My roots are in research: a PhD in physics with a focus on AI from the University of Alberta, and hands-on machine learning since the mid-2000s.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">100+</div><div class="l">person technology organization led</div></div>
+        <div class="stat"><div class="n">~$50M</div><div class="l">software practice built from zero</div></div>
+        <div class="stat"><div class="n">300+</div><div class="l">clients served by the FusionMap® products</div></div>
+        <div class="stat"><div class="n">15+</div><div class="l">peer-reviewed papers and proceedings</div></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="experience">
+      <h2 id="experience">Experience</h2>
+      <div class="job">
+        <div class="top">
+          <h3>Executive Vice President &amp; Chief Technology Officer <span class="org">· Michael Baker International</span></h3>
+          <span class="when">2025 – present</span>
+        </div>
         <ul>
-            <li><strong>Product Leadership:</strong> As the Product Owner of FusionMap, I guide the development of advanced geospatial solutions, enabling users to visualize and analyze satellite data like never before.</li>
-            <li><strong>AI & Data Innovation:</strong> I specialize in the intersection of AI and geospatial data, creating tools that monitor environmental changes and improve infrastructure management through satellite imagery.</li>
-            <li><strong>Thought Leadership:</strong> I contribute to industry knowledge through conference papers and articles, focusing on AI-driven water hazard detection using satellite data.</li>
-            <li><strong>Team Building:</strong> I’m passionate about building strong, innovative teams that thrive on collaboration and continuous learning.</li>
+          <li>Member of the executive committee of a top-15 U.S. engineering, infrastructure and government-technology firm (~6,000 people); lead its technology strategy across four business verticals.</li>
+          <li>Launched an open, vendor-agnostic digital-twin platform that brings LiDAR, 360° imagery, BIM and IoT together with 3-D visualization and computer vision.</li>
+          <li>Rolled out a governed, multi-model enterprise AI platform with a no-code agent builder; about a quarter of the firm now uses it.</li>
+          <li>Built strategic partnerships with Microsoft, Autodesk, Databricks and frontier AI labs; host of the firm's annual Technology Summit.</li>
         </ul>
-
-        <h2>Featured Projects</h2>
+      </div>
+      <div class="job">
+        <div class="top">
+          <h3>SVP, AI &amp; Digital Solutions <span class="org">· Tetra Tech</span></h3>
+          <span class="when">2017 – 2025</span>
+        </div>
         <ul>
-            <li><strong>FusionMap:</strong> A powerful geospatial platform designed to give users intuitive tools for analyzing satellite data and tracking environmental changes.</li>
-            <li><strong>Docker & LiDAR:</strong> Developing Dockerized solutions for processing LiDAR data with PotreeConverter, seamlessly integrating with Azure for cloud-based workflows.</li>
-            <li><strong>Data Licensing Advocacy:</strong> Tackling the complexities of data licensing in the satellite industry, advocating for more accessible frameworks.</li>
+          <li>Founded and scaled the digital-solutions practice (50+ engineers, data scientists and product managers) and the FusionMap® product family: 45+ AI models processing 100,000+ km of infrastructure a year.</li>
+          <li>Delivered award-winning AI programs: satellite-radar water-hazard detection for a Class 1 railway, landslide prediction for Auckland Transport, and LiDAR change detection for pipelines.</li>
+          <li>Led computer-vision asset extraction for transportation agencies and created the Façade™ and Airfield™ AI defect-detection products for buildings, bridges, dams and runways.</li>
         </ul>
+      </div>
+      <div class="job">
+        <div class="top">
+          <h3>Research Scientist <span class="org">· University of Alberta</span></h3>
+          <span class="when">2012 – 2017</span>
+        </div>
+        <ul>
+          <li>Research in quantitative physics, machine learning and signal processing, including the open-source ARTc seismic calculator.</li>
+        </ul>
+      </div>
+    </section>
 
-        <h2>Explore My Work</h2>
-        <p>On this page, you'll find repositories that reflect my commitment to innovation in geospatial technology, AI, and satellite data. These projects showcase my approach to solving real-world problems with cutting-edge solutions.</p>
-        
-        <h2>Let’s Connect</h2>
-        <p>I’m always open to discussions, collaborations, and new opportunities. Feel free to explore my work and <a href="https://www.linkedin.com/in/rod-malehmir-phd-66b54624?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">connect with me on LinkedIn</a>!</p>
+    <section aria-labelledby="focus">
+      <h2 id="focus">What I work on</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>Enterprise AI</h3>
+          <p>Strategy, governance and platforms that put AI agents in the hands of thousands of engineers, with a clear line from AI investment to business results.</p>
+        </div>
+        <div class="card">
+          <h3>Digital twins &amp; geospatial platforms</h3>
+          <p>Open platforms that join LiDAR, imagery, BIM and IoT data into living models of buildings and infrastructure.</p>
+        </div>
+        <div class="card">
+          <h3>AI for infrastructure risk</h3>
+          <p>Computer vision and Earth-observation models that detect water hazards, landslides and defects before they become failures.</p>
+        </div>
+        <div class="card">
+          <h3>Building technology businesses</h3>
+          <p>Turning technology into products and recurring revenue, and building the teams and operating models that ship them.</p>
+        </div>
+      </div>
+    </section>
 
-        <footer>
-            <p>© 2024 Rod Malehmir</p>
-        </footer>
+    <section aria-labelledby="projects">
+      <h2 id="projects">Selected work</h2>
+      <div class="grid">
+        <div class="card">
+          <span class="tag">Product</span>
+          <h3>FusionMap®</h3>
+          <p>AI product family for infrastructure: asset extraction, change detection and hazard monitoring from LiDAR, imagery and satellite data.</p>
+        </div>
+        <div class="card">
+          <span class="tag">AI</span>
+          <h3>Façade™ &amp; Airfield™</h3>
+          <p>Computer-vision defect detection for building façades, bridges, dams and airport runways.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Open source</span>
+          <h3>ARTc</h3>
+          <p>Seismic reflection and transmission calculator for anisotropic media, from my PhD research. Now a browser app.</p>
+          <a class="more" href="https://rezmal.github.io/ARTC/">Open the app →</a>
+          <a class="more" href="https://github.com/rezmal/ARTC" style="margin-left:12px">Code →</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="two-col">
+      <section aria-labelledby="awards">
+        <h2 id="awards">Recognition</h2>
+        <ul class="plain">
+          <li>ACEC-BC Award of Excellence (2025) <span class="meta">· CPKC water-hazard detection program</span></li>
+          <li>Tetra Tech T1K Award (2024) <span class="meta">· Airfield™ runway inspection</span></li>
+          <li>Tetra Tech T1K Award (2022) <span class="meta">· Façade™ defect detection</span></li>
+          <li>Tetra Tech Global Excellence &amp; Achievement Award (2020) <span class="meta">· AI in LiDAR</span></li>
+          <li>Tetra Tech Innovation Award (2018) <span class="meta">· Mobile HD mapping</span></li>
+          <li>ACEC-BC Award of Merit (2018) <span class="meta">· Autonomous LiDAR mapping</span></li>
+          <li>Dr. Roy Hibbs Award, University of Alberta (2015)</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="edu">
+        <h2 id="edu">Education</h2>
+        <ul class="plain">
+          <li><strong>PhD, Physics</strong> (AI focus)<br /><span class="meta">University of Alberta</span></li>
+          <li><strong>MSc &amp; BSc, Civil Engineering</strong></li>
+        </ul>
+      </section>
     </div>
+
+    <section aria-labelledby="pubs">
+      <h2 id="pubs">Selected publications</h2>
+      <ul class="plain">
+        <li>Malehmir, R., &amp; Kozun, R. (2025). Water hazard assessment using AI and synthetic aperture radar. <em>AREMA</em>.</li>
+        <li>Kozun, R., &amp; Malehmir, R. (2025). Water hazard assessments and flood detection. <em>Canadian Geotechnical Society Conference</em>, Edmonton.</li>
+        <li>Markovic, M., &amp; Malehmir, R. (2023). Diffraction denoising using self-supervised learning. <em>Geophysical Prospecting</em>.</li>
+        <li>Malehmir, R., &amp; Firbank, F. (2022). Making a digital twin of roadway assets with machine learning. <em>TAC Conference</em>, Edmonton.</li>
+        <li>Malehmir, R., &amp; Schmitt, D. R. (2016). ARTc: Anisotropic reflectivity and transmissivity calculator. <em>Computers &amp; Geosciences</em>, 93, 114–126. <a href="https://doi.org/10.1016/j.cageo.2016.05.008" target="_blank" rel="noopener">doi</a></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="news">
+      <h2 id="news">In the news</h2>
+      <p><a href="https://mbakerintl.com/news-insights/news-release/michael-baker-international-accelerates-tech-focused-evolution-names-rod-malehmir-ph-d-executive-vice-president-and-chief-technology-officer/" target="_blank" rel="noopener">Michael Baker International accelerates tech-focused evolution, names Rod Malehmir, Ph.D., Executive Vice President and Chief Technology Officer</a></p>
+    </section>
+
+    <section aria-labelledby="contact">
+      <h2 id="contact">Get in touch</h2>
+      <p>I'm glad to talk about enterprise AI, digital twins and technology in engineering. The best way to reach me is <a href="https://www.linkedin.com/in/rodmalehmir" target="_blank" rel="noopener">LinkedIn</a>.</p>
+    </section>
+
+    <footer>© 2026 Rod Malehmir</footer>
+  </main>
 </body>
 </html>
